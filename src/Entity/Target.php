@@ -37,6 +37,17 @@ class Target
      */
     private $target_code_name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=mission::class, inversedBy="targets")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mission;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=nationality::class, inversedBy="targets")
+     */
+    private $nationality;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +97,30 @@ class Target
     public function setTargetCodeName(string $target_code_name): self
     {
         $this->target_code_name = $target_code_name;
+
+        return $this;
+    }
+
+    public function getMission(): ?mission
+    {
+        return $this->mission;
+    }
+
+    public function setMission(?mission $mission): self
+    {
+        $this->mission = $mission;
+
+        return $this;
+    }
+
+    public function getNationality(): ?nationality
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(?nationality $nationality): self
+    {
+        $this->nationality = $nationality;
 
         return $this;
     }

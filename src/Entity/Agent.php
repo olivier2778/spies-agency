@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AgentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,27 @@ class Agent
      * @ORM\Column(type="string", length=50)
      */
     private $agent_identification_code;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=nationality::class, inversedBy="agents")
+     */
+    private $nationality;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Speciality::class, mappedBy="agent")
+     */
+    private $specialities;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="agent")
+     */
+    private $missions;
+
+    public function __construct()
+    {
+        $this->specialities = new ArrayCollection();
+        $this->missions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +109,72 @@ class Agent
     public function setAgentIdentificationCode(string $agent_identification_code): self
     {
         $this->agent_identification_code = $agent_identification_code;
+
+        return $this;
+    }
+
+    public function getNationality(): ?nationality
+    {
+        return $this->nationality;
+    }
+
+    public function setNationality(?nationality $nationality): self
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Speciality[]
+     */
+    public function getSpecialities(): Collection
+    {
+        return $this->specialities;
+    }
+
+    public function addSpeciality(Speciality $speciality): self
+    {
+        if (!$this->specialities->contains($speciality)) {
+            $this->specialities[] = $speciality;
+            $speciality->addAgent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeciality(Speciality $speciality): self
+    {
+        if ($this->specialities->removeElement($speciality)) {
+            $speciality->removeAgent($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Mission[]
+     */
+    public function getMissions(): Collection
+    {
+        return $this->missions;
+    }
+
+    public function addMission(Mission $mission): self
+    {
+        if (!$this->missions->contains($mission)) {
+            $this->missions[] = $mission;
+            $mission->addAgent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMission(Mission $mission): self
+    {
+        if ($this->missions->removeElement($mission)) {
+            $mission->removeAgent($this);
+        }
 
         return $this;
     }
