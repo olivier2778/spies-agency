@@ -10,13 +10,25 @@
 
  {% if app.user %}
         <div class="mb-3">
-            Vous etes loggé sous {{ app.user.username }}   <a href="{{ path('home') }}">Logout</a>
+            Vous etes loggé sous {{ app.user.username }}              
             <br>
+            <a href="{{ path('logout') }}">Logout</a>
+            
         </div>
-    {% endif %}
+
+         <form action="{{ path('logout') }}" method="post" id="form-button-logout">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}" id="csrf-token"/>
+                <input
+                    class="btn btn-danger border-0 rounded-0 text-white" type="submit" id="_submit"
+                    name="_submit"
+                    value="Logout"
+                />
+        </form>
+
+            {% endif %}
 
 <div class="example-wrapper">
-    <h1> Page Accessible avec un loggin de role Admin</h1>  
+    <h1> Page Accessible avec un login de role Admin</h1>  
 </div>
 
 {% endblock %}
