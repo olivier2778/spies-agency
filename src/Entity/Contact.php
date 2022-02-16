@@ -40,7 +40,7 @@ class Contact
     private $contact_code_name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=nationality::class, inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="contacts")
      */
     private $nationality;
 

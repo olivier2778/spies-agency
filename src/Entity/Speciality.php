@@ -30,7 +30,7 @@ class Speciality
     private $missions;
 
     /**
-     * @ORM\ManyToMany(targetEntity=agent::class, inversedBy="specialities")
+     * @ORM\ManyToMany(targetEntity=Agent::class, inversedBy="specialities")
      */
     private $agent;
 
