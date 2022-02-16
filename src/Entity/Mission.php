@@ -45,22 +45,22 @@ class Mission
     private $mission_end_date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=typeMission::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=TypeMission::class, inversedBy="missions")
      */
     private $typeMission;
 
     /**
-     * @ORM\ManyToOne(targetEntity=status::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="missions")
      */
     private $status;
 
     /**
-     * @ORM\ManyToOne(targetEntity=speciality::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Speciality::class, inversedBy="missions")
      */
     private $speciality;
 
     /**
-     * @ORM\ManyToOne(targetEntity=country::class, inversedBy="missions")
+     * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="missions")
      */
     private $country;
 
@@ -70,17 +70,17 @@ class Mission
     private $targets;
 
     /**
-     * @ORM\ManyToMany(targetEntity=agent::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Agent::class, inversedBy="missions")
      */
     private $agent;
 
     /**
-     * @ORM\ManyToMany(targetEntity=contact::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Contact::class, inversedBy="missions")
      */
     private $contact;
 
     /**
-     * @ORM\ManyToMany(targetEntity=hideaway::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Hideaway::class, inversedBy="missions")
      */
     private $hideaway;
 

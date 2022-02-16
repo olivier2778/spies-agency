@@ -40,7 +40,7 @@ class Agent
     private $agent_identification_code;
 
     /**
-     * @ORM\ManyToOne(targetEntity=nationality::class, inversedBy="agents")
+     * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="agents")
      */
     private $nationality;
 
@@ -178,4 +178,6 @@ class Agent
 
         return $this;
     }
+
+    
 }

@@ -38,13 +38,13 @@ class Target
     private $target_code_name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=mission::class, inversedBy="targets")
+     * @ORM\ManyToOne(targetEntity=Mission::class, inversedBy="targets")
      * @ORM\JoinColumn(nullable=false)
      */
     private $mission;
 
     /**
-     * @ORM\ManyToOne(targetEntity=nationality::class, inversedBy="targets")
+     * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="targets")
      */
     private $nationality;
 

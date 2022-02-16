@@ -30,12 +30,12 @@ class Hideaway
     private $hideaway_adress;
 
     /**
-     * @ORM\ManyToOne(targetEntity=country::class, inversedBy="hideaways")
+     * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="hideaways")
      */
     private $country;
 
     /**
-     * @ORM\ManyToOne(targetEntity=typeHideaway::class, inversedBy="hideaways")
+     * @ORM\ManyToOne(targetEntity=TypeHideaway::class, inversedBy="hideaways")
      */
     private $typeHideaway;
 
