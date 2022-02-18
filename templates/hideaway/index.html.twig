@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hideaway index{% endblock %}
+
+{% block body %}
+    <h1>Hideaway index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hideaway_code</th>
+                <th>Hideaway_adress</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hideaway in hideaways %}
+            <tr>
+                <td>{{ hideaway.id }}</td>
+                <td>{{ hideaway.hideawayCode }}</td>
+                <td>{{ hideaway.hideawayAdress }}</td>
+                <td>
+                    <a href="{{ path('hideaway_show', {'id': hideaway.id}) }}">show</a>
+                    <a href="{{ path('hideaway_edit', {'id': hideaway.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   
+    % if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('hideaway_new') }}">Création nouvelle Planque</a>    
+    {% endif %}    
+
+{% endblock %}

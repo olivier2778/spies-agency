@@ -54,8 +54,12 @@ class Agent
     private $specialities;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="agent")
-     */
+     * @ORM\ManyToMany(targetEntity=Mission::class)
+     * @ORM\JoinTable(name="mission_agent",
+     * joinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")}
+     * )
+     */   
     private $missions;
 
     public function __construct()

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeHideaway{% endblock %}
+
+{% block body %}
+    <h1>TypeHideaway</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_hideaway.id }}</td>
+            </tr>
+            <tr>
+                <th>TypeHideaway_name</th>
+                <td>{{ type_hideaway.typeHideawayName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_hideaway_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('type_hideaway_edit', {'id': type_hideaway.id}) }}">Modifier</a>
+
+    {{ include('type_hideaway/_delete_form.html.twig') }}
+{% endblock %}

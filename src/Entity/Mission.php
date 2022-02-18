@@ -67,10 +67,14 @@ class Mission
     /**
      * @ORM\OneToMany(targetEntity=Target::class, mappedBy="mission")
      */
-    private $targets;
+    private $targets;    
 
     /**
-     * @ORM\ManyToMany(targetEntity=Agent::class, inversedBy="missions")
+     * @ORM\ManyToMany(targetEntity=Agent::class)
+     * @ORM\JoinTable(name="mission_agent",
+     * joinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
+     * )
      */
     private $agent;
 
@@ -307,9 +311,5 @@ class Mission
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->mission_title ;
-    }
-
+    
 }

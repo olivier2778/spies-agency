@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeHideaway index{% endblock %}
+
+{% block body %}
+    <h1>TypeHideaway index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TypeHideaway_name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_hideaway in type_hideaways %}
+            <tr>
+                <td>{{ type_hideaway.id }}</td>
+                <td>{{ type_hideaway.typeHideawayName }}</td>
+                <td>
+                    <a href="{{ path('type_hideaway_show', {'id': type_hideaway.id}) }}">show</a>
+                    <a href="{{ path('type_hideaway_edit', {'id': type_hideaway.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
+
+     % if is_granted('ROLE_ADMIN') %}
+             <a href="{{ path('type_hideaway_new') }}">Création nouvelle Planque</a>
+    {% endif %}   
+
+{% endblock %}

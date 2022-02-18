@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeHideaway{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeHideaway</h1>
+
+    {{ include('type_hideaway/_form.html.twig') }}
+
+    <a href="{{ path('type_hideaway_index') }}">Retour à la liste</a>
+{% endblock %}
