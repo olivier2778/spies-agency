@@ -28,5 +28,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('speciality_new') }}">Création nouvelle Spécialité</a>
+    {% if is_granted('ROLE_ADMIN') %}
+             <a href="{{ path('speciality_new') }}">Création nouvelle Spécialité</a>
+    {% endif %} 
+    
 {% endblock %}

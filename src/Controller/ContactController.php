@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/contact")
- */
+
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/", name="contact_index", methods={"GET"})
+     * @Route("/contact/", name="contact_index", methods={"GET"})
      */
     public function index(ContactRepository $contactRepository): Response
     {
@@ -27,7 +25,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="contact_new", methods={"GET", "POST"})
+     * @Route("/admin/contact/new", name="contact_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="contact_show", methods={"GET"})
+     * @Route("/contact/{id}", name="contact_show", methods={"GET"})
      */
     public function show(Contact $contact): Response
     {
@@ -59,7 +57,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="contact_edit", methods={"GET", "POST"})
+     * @Route("/admin/contact/{id}/edit", name="contact_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Contact $contact, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="contact_delete", methods={"POST"})
+     * @Route("/admin/contact/{id}", name="contact_delete", methods={"POST"})
      */
     public function delete(Request $request, Contact $contact, EntityManagerInterface $entityManager): Response
     {

@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/status")
- */
+
 class StatusController extends AbstractController
 {
     /**
-     * @Route("/", name="status_index", methods={"GET"})
+     * @Route("/status/", name="status_index", methods={"GET"})
      */
     public function index(StatusRepository $statusRepository): Response
     {
@@ -27,7 +25,7 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="status_new", methods={"GET", "POST"})
+     * @Route("/admin/status/new", name="status_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="status_show", methods={"GET"})
+     * @Route("/status/{id}", name="status_show", methods={"GET"})
      */
     public function show(Status $status): Response
     {
@@ -59,7 +57,7 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="status_edit", methods={"GET", "POST"})
+     * @Route("/admin/status/{id}/edit", name="status_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Status $status, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="status_delete", methods={"POST"})
+     * @Route("/admin/status/{id}", name="status_delete", methods={"POST"})
      */
     public function delete(Request $request, Status $status, EntityManagerInterface $entityManager): Response
     {

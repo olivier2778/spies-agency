@@ -31,8 +31,8 @@
         </tbody>
     </table>  
 
-    % if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('country_new') }}">Creation nouveau Pays</a>        
+    {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('country_new') }}">Création nouveau Pays</a>        
     {% endif %}    
-    
+
 {% endblock %}

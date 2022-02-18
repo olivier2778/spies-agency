@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/target")
- */
+
 class TargetController extends AbstractController
 {
     /**
-     * @Route("/", name="target_index", methods={"GET"})
+     * @Route("/target/", name="target_index", methods={"GET"})
      */
     public function index(TargetRepository $targetRepository): Response
     {
@@ -27,7 +25,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="target_new", methods={"GET", "POST"})
+     * @Route("/admin/target/new", name="target_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="target_show", methods={"GET"})
+     * @Route("/target/{id}", name="target_show", methods={"GET"})
      */
     public function show(Target $target): Response
     {
@@ -59,7 +57,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="target_edit", methods={"GET", "POST"})
+     * @Route("/admin/target/{id}/edit", name="target_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Target $target, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="target_delete", methods={"POST"})
+     * @Route("/admin/target/{id}", name="target_delete", methods={"POST"})
      */
     public function delete(Request $request, Target $target, EntityManagerInterface $entityManager): Response
     {

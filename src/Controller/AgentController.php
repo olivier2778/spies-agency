@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AgentController extends AbstractController
 {
     /**
-     * @Route("/home/agent", name="agent_index", methods={"GET"})
+     * @Route("/agent", name="agent_index", methods={"GET"})
      */
     public function index(AgentRepository $agentRepository): Response
     {
@@ -47,7 +47,7 @@ class AgentController extends AbstractController
     }
 
     /**
-     * @Route("/home/agent/{id}", name="agent_show", methods={"GET"})
+     * @Route("/agent/{id}", name="agent_show", methods={"GET"})
      */
     public function show(Agent $agent): Response
     {
