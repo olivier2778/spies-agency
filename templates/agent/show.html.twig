@@ -6,33 +6,53 @@
     <h1>Agent</h1>
 
     <table class="table">
-        <tbody>
+        <tbody>           
             <tr>
-                <th>Id</th>
-                <td>{{ agent.id }}</td>
-            </tr>
-            <tr>
-                <th>Agent_last_name</th>
+                <th>Nom</th>
                 <td>{{ agent.agentLastName }}</td>
             </tr>
             <tr>
-                <th>Agent_first_name</th>
+                <th>Prénom</th>
                 <td>{{ agent.agentFirstName }}</td>
             </tr>
             <tr>
-                <th>Agent_birth_date</th>
+                <th>Date de naissance</th>
                 <td>{{ agent.agentBirthDate ? agent.agentBirthDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Agent_identification_code</th>
+                <th>Code d'identification</th>
                 <td>{{ agent.agentIdentificationCode }}</td>
             </tr>
+            <tr>
+                <th>Nationnalité</th>
+                <td>{{ agent.nationality }}</td>
+            </tr>
+            <tr>
+                <th>Spécialité</th>
+                 <td>
+					{% for agents in agent.specialities %}
+						<li>{{agents.specialityName}}</li>
+					{% else %}
+                     <li><em>vide</em></li>
+                {% endfor %}
+			    </td>                
+            </tr>
+           
+            
+
+           
+
+
+
         </tbody>
     </table>
 
-    <a href="{{ path('agent_index') }}">back to list</a>
+    <a href="{{ path('agent_index') }}">Retour à la liste</a>
+    
+    {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('agent_edit', {'id': agent.id}) }}">Modifier</a>    
+            {{ include('agent/_delete_form.html.twig') }}           
+    {% endif %}     
 
-    <a href="{{ path('agent_edit', {'id': agent.id}) }}">edit</a>
-
-    {{ include('agent/_delete_form.html.twig') }}
+    
 {% endblock %}

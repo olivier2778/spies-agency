@@ -45,7 +45,11 @@ class Agent
     private $nationality;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Speciality::class, mappedBy="agent")
+     * @ORM\ManyToMany(targetEntity=Speciality::class)
+     * @ORM\JoinTable(name="speciality_agent",
+     * joinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")}
+     * )
      */
     private $specialities;
 
@@ -179,5 +183,6 @@ class Agent
         return $this;
     }
 
+   
     
 }

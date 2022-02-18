@@ -3,33 +3,31 @@
 {% block title %}Nationality index{% endblock %}
 
 {% block body %}
-    <h1>Nationality index</h1>
+    <h1>Nationalité Détails</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nationality_name</th>
+            <tr>                
+                <th>Nationalité</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for nationality in nationalities %}
-            <tr>
-                <td>{{ nationality.id }}</td>
+            <tr>                
                 <td>{{ nationality.nationalityName }}</td>
                 <td>
-                    <a href="{{ path('nationality_show', {'id': nationality.id}) }}">show</a>
-                    <a href="{{ path('nationality_edit', {'id': nationality.id}) }}">edit</a>
+                    <a href="{{ path('nationality_show', {'id': nationality.id}) }}">Afficher</a>
+                    <a href="{{ path('nationality_edit', {'id': nationality.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('nationality_new') }}">Create new</a>
+    <a href="{{ path('nationality_new') }}">Création nouvelle</a>
 {% endblock %}
