@@ -3,16 +3,12 @@
 {% block title %}Nationality{% endblock %}
 
 {% block body %}
-    <h1>Nationality</h1>
+    <h1>Nationalité</h1>
 
     <table class="table">
-        <tbody>
+        <tbody>            
             <tr>
-                <th>Id</th>
-                <td>{{ nationality.id }}</td>
-            </tr>
-            <tr>
-                <th>Nationality_name</th>
+                <th>Nationalité</th>
                 <td>{{ nationality.nationalityName }}</td>
             </tr>
         </tbody>
@@ -20,7 +16,7 @@
 
     <a href="{{ path('nationality_index') }}">back to list</a>
 
-    <a href="{{ path('nationality_edit', {'id': nationality.id}) }}">edit</a>
+    <a href="{{ path('nationality_edit', {'id': nationality.id}) }}">Modifier</a>
 
     {{ include('nationality/_delete_form.html.twig') }}
 {% endblock %}

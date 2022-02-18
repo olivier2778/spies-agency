@@ -35,7 +35,7 @@ security:
 
             logout :    
                 path: logout
-                target : home
+                target : agent_index
 
 
 

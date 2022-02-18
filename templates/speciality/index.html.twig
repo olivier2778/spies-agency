@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Speciality index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Spécialités</h1>
+
+    <table class="table">
+        <thead>
+            <tr>                
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for speciality in specialities %}
+            <tr>                
+                <td>{{ speciality.specialityName }}</td>
+                <td>                   
+                    <a href="{{ path('speciality_edit', {'id': speciality.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('speciality_new') }}">Ajouter une nouvelle spécialité</a>
+{% endblock %}

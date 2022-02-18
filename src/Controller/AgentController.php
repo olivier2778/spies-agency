@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/agent")
- */
+
 class AgentController extends AbstractController
 {
     /**
-     * @Route("/", name="agent_index", methods={"GET"})
+     * @Route("/home/agent", name="agent_index", methods={"GET"})
      */
     public function index(AgentRepository $agentRepository): Response
     {
@@ -27,7 +25,7 @@ class AgentController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="agent_new", methods={"GET", "POST"})
+     * @Route("/admin/agent/new", name="agent_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class AgentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="agent_show", methods={"GET"})
+     * @Route("/home/agent/{id}", name="agent_show", methods={"GET"})
      */
     public function show(Agent $agent): Response
     {
@@ -59,7 +57,7 @@ class AgentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="agent_edit", methods={"GET", "POST"})
+     * @Route("/admin/agent/{id}/edit", name="agent_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Agent $agent, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class AgentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="agent_delete", methods={"POST"})
+     * @Route("/admin/agent/{id}", name="agent_delete", methods={"POST"})
      */
     public function delete(Request $request, Agent $agent, EntityManagerInterface $entityManager): Response
     {

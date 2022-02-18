@@ -30,7 +30,11 @@ class Speciality
     private $missions;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Agent::class, inversedBy="specialities")
+     * @ORM\ManyToMany(targetEntity=Agent::class)
+     * @ORM\JoinTable(name="speciality_agent",
+     * joinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
+     * )
      */
     private $agent;
 
@@ -110,4 +114,10 @@ class Speciality
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this ->specialities;
+    }
+
 }
