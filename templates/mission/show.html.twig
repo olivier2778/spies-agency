@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mission{% endblock %}
+
+{% block body %}
+    <h1>Mission</h1>
+
+    <table class="table">
+        <tbody>            
+            <tr>
+                <th>Titre</th>
+                <td>{{ mission.missionTitle }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ mission.missionDescription }}</td>
+            </tr>
+            <tr>
+                <th>Nom de Code</th>
+                <td>{{ mission.missionCodeName }}</td>
+            </tr>
+            <tr>
+                <th>Date de Début</th>
+                <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de Fin</th>
+                <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
+            </tr>
+             <tr>               
+                <th>Nom de Code</th>
+                <td>{{ mission.missionCodeName }}</td>
+            </tr>
+
+            <tr>  
+                <th>Nom Agent(s)</th>           
+                <td>                   
+                    {% for agents in mission.agent %}
+                    <li>{{ agents.AgentLastName}}</li>
+                    {% else %}
+                        <li><em>vide</em></li>
+                    {% endfor %}
+                </td>                   
+            </tr>
+
+            <tr>  
+                <th>Nom Contact(s)</th>           
+                <td>                   
+                    {% for contacts in mission.contact %}
+                    <li>{{ contacts.ContactLastName}}</li>                    
+                    {% else %}
+                        <li><em>vide</em></li>
+                    {% endfor %}
+                </td>                     
+            </tr>
+            
+            <tr>  
+                <th>Nom Cible(s)</th>           
+                <td>                   
+                    {% for target in mission.targets %}
+                    <li>{{ target.TargetLastName}}</li>                       
+                    {% else %}
+                        <li><em>vide</em></li>
+                    {% endfor %}
+                </td>                     
+            </tr>      
+          
+
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('mission_index') }}">Retour à la liste</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('mission_edit', {'id': mission.id}) }}">Modifier</a>
+        {{ include('mission/_delete_form.html.twig') }}
+    {% endif %}    
+
+    
+{% endblock %}
+
+
+

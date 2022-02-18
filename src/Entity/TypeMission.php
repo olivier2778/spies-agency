@@ -80,4 +80,13 @@ class TypeMission
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->typeMission_name ;
+    }
+
+
+
+
 }

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Target index{% endblock %}
+
+{% block body %}
+    <h1>Target index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Target_last_name</th>
+                <th>Target_first_name</th>
+                <th>Target_birth_date</th>
+                <th>Target_code_name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for target in targets %}
+            <tr>
+                <td>{{ target.id }}</td>
+                <td>{{ target.targetLastName }}</td>
+                <td>{{ target.targetFirstName }}</td>
+                <td>{{ target.targetBirthDate ? target.targetBirthDate|date('Y-m-d') : '' }}</td>
+                <td>{{ target.targetCodeName }}</td>
+                <td>
+                    <a href="{{ path('target_show', {'id': target.id}) }}">show</a>
+                    <a href="{{ path('target_edit', {'id': target.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    % if is_granted('ROLE_ADMIN') %}
+             <a href="{{ path('target_new') }}">Création nouvelle Cible</a>
+    {% endif %}   
+
+{% endblock %}

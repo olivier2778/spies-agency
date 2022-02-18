@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypeHideaway{% endblock %}
+
+{% block body %}
+    <h1>Edit TypeHideaway</h1>
+
+    {{ include('type_hideaway/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('type_hideaway_index') }}">Retour à la liste</a>
+
+    {{ include('type_hideaway/_delete_form.html.twig') }}
+{% endblock %}

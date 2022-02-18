@@ -115,9 +115,14 @@ class Speciality
         return $this;
     }
 
+    
+
     public function __toString()
     {
-        return $this ->specialities;
+        return $this->speciality_name ;
     }
+
+
+    
 
 }

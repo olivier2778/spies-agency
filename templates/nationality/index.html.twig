@@ -29,5 +29,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('nationality_new') }}">Création nouvelle</a>
+    % if is_granted('ROLE_ADMIN') %}
+             <a href="{{ path('nationality_new') }}">Création nouvelle Nationalité</a>  
+    {% endif %}    
+
 {% endblock %}
