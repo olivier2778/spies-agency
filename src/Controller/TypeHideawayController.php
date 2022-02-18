@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/type/hideaway")
- */
+
 class TypeHideawayController extends AbstractController
 {
     /**
-     * @Route("/", name="type_hideaway_index", methods={"GET"})
+     * @Route("/type/hideaway/", name="type_hideaway_index", methods={"GET"})
      */
     public function index(TypeHideawayRepository $typeHideawayRepository): Response
     {
@@ -27,7 +25,7 @@ class TypeHideawayController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="type_hideaway_new", methods={"GET", "POST"})
+     * @Route("/admin/type/hideaway/new", name="type_hideaway_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class TypeHideawayController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="type_hideaway_show", methods={"GET"})
+     * @Route("/type/hideaway/{id}", name="type_hideaway_show", methods={"GET"})
      */
     public function show(TypeHideaway $typeHideaway): Response
     {
@@ -59,7 +57,7 @@ class TypeHideawayController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="type_hideaway_edit", methods={"GET", "POST"})
+     * @Route("/admin/type/hideaway/{id}/edit", name="type_hideaway_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, TypeHideaway $typeHideaway, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class TypeHideawayController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="type_hideaway_delete", methods={"POST"})
+     * @Route("/admin/type/hideaway/{id}", name="type_hideaway_delete", methods={"POST"})
      */
     public function delete(Request $request, TypeHideaway $typeHideaway, EntityManagerInterface $entityManager): Response
     {

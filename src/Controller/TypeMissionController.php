@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/type/mission")
- */
+
 class TypeMissionController extends AbstractController
 {
     /**
-     * @Route("/", name="type_mission_index", methods={"GET"})
+     * @Route("/type/mission/", name="type_mission_index", methods={"GET"})
      */
     public function index(TypeMissionRepository $typeMissionRepository): Response
     {
@@ -27,7 +25,7 @@ class TypeMissionController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="type_mission_new", methods={"GET", "POST"})
+     * @Route("/admin/type/mission/new", name="type_mission_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class TypeMissionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="type_mission_show", methods={"GET"})
+     * @Route("/type/mission/{id}", name="type_mission_show", methods={"GET"})
      */
     public function show(TypeMission $typeMission): Response
     {
@@ -59,7 +57,7 @@ class TypeMissionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="type_mission_edit", methods={"GET", "POST"})
+     * @Route("/admin/type/mission/{id}/edit", name="type_mission_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, TypeMission $typeMission, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class TypeMissionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="type_mission_delete", methods={"POST"})
+     * @Route("/admin/type/mission/{id}", name="type_mission_delete", methods={"POST"})
      */
     public function delete(Request $request, TypeMission $typeMission, EntityManagerInterface $entityManager): Response
     {

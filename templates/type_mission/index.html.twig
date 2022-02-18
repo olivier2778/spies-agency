@@ -31,7 +31,7 @@
         </tbody>
     </table>
   
-    % if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_ADMIN') %}
               <a href="{{ path('type_mission_new') }}">Création nouvelle Mission</a>
     {% endif %}   
 

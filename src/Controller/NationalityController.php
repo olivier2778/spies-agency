@@ -11,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/nationality")
- */
+
 class NationalityController extends AbstractController
 {
     /**
-     * @Route("/", name="nationality_index", methods={"GET"})
+     * @Route("/nationality/", name="nationality_index", methods={"GET"})
      */
     public function index(NationalityRepository $nationalityRepository): Response
     {
@@ -27,7 +25,7 @@ class NationalityController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="nationality_new", methods={"GET", "POST"})
+     * @Route("/admin/nationality/new", name="nationality_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +47,7 @@ class NationalityController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="nationality_show", methods={"GET"})
+     * @Route("/nationality/{id}", name="nationality_show", methods={"GET"})
      */
     public function show(Nationality $nationality): Response
     {
@@ -59,7 +57,7 @@ class NationalityController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="nationality_edit", methods={"GET", "POST"})
+     * @Route("/admin/nationality/{id}/edit", name="nationality_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Nationality $nationality, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +77,7 @@ class NationalityController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="nationality_delete", methods={"POST"})
+     * @Route("/admin/nationality/{id}", name="nationality_delete", methods={"POST"})
      */
     public function delete(Request $request, Nationality $nationality, EntityManagerInterface $entityManager): Response
     {
