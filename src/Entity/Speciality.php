@@ -113,16 +113,11 @@ class Speciality
         $this->agent->removeElement($agent);
 
         return $this;
-    }
-
-    
+    }    
 
     public function __toString()
     {
         return $this->speciality_name ;
-    }
-
-
-    
+    }    
 
 }

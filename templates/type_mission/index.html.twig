@@ -3,24 +3,22 @@
 {% block title %}TypeMission index{% endblock %}
 
 {% block body %}
-    <h1>TypeMission index</h1>
+    <h1>Liste des types de Missions</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>TypeMission_name</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for type_mission in type_missions %}
-            <tr>
-                <td>{{ type_mission.id }}</td>
+            <tr>                
                 <td>{{ type_mission.typeMissionName }}</td>
                 <td>
-                    <a href="{{ path('type_mission_show', {'id': type_mission.id}) }}">show</a>
-                    <a href="{{ path('type_mission_edit', {'id': type_mission.id}) }}">edit</a>
+                    <a href="{{ path('type_mission_show', {'id': type_mission.id}) }}">Voir</a>
+                    <a href="{{ path('type_mission_edit', {'id': type_mission.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

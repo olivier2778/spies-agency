@@ -187,6 +187,12 @@ class Agent
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->agent_last_name ;
+    }    
+    
+
    
     
 }

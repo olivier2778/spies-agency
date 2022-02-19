@@ -24,7 +24,7 @@ class MissionType extends AbstractType
             ->add('agent')
             ->add('contact')
             ->add('hideaway')
-            ->add('target')
+            ->add('targets')
         ;
     }
 

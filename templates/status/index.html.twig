@@ -3,24 +3,22 @@
 {% block title %}Status index{% endblock %}
 
 {% block body %}
-    <h1>Status index</h1>
+    <h1>Liste des Statuts</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Status_name</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for status in statuses %}
-            <tr>
-                <td>{{ status.id }}</td>
+            <tr>                
                 <td>{{ status.statusName }}</td>
                 <td>
-                    <a href="{{ path('status_show', {'id': status.id}) }}">show</a>
-                    <a href="{{ path('status_edit', {'id': status.id}) }}">edit</a>
+                    <a href="{{ path('status_show', {'id': status.id}) }}">Voir</a>
+                    <a href="{{ path('status_edit', {'id': status.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

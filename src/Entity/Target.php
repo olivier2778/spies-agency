@@ -38,8 +38,7 @@ class Target
     private $target_code_name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Mission::class, inversedBy="targets")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Mission::class, inversedBy="targets")    
      */
     private $mission;
 
@@ -124,4 +123,10 @@ class Target
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->target_last_name ;
+    }    
+    
 }

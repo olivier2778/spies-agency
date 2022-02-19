@@ -3,26 +3,28 @@
 {% block title %}Hideaway index{% endblock %}
 
 {% block body %}
-    <h1>Hideaway index</h1>
+    <h1>Liste des Planques</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Hideaway_code</th>
                 <th>Hideaway_adress</th>
-                <th>actions</th>
+                <th>Hideaway_country</th>
+                <th>Hideaway_typeHideaway</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for hideaway in hideaways %}
-            <tr>
-                <td>{{ hideaway.id }}</td>
+            <tr>                
                 <td>{{ hideaway.hideawayCode }}</td>
                 <td>{{ hideaway.hideawayAdress }}</td>
+                <td>{{ hideaway.country }}</td>
+                <td>{{ hideaway.typeHideaway }}</td>                
                 <td>
-                    <a href="{{ path('hideaway_show', {'id': hideaway.id}) }}">show</a>
-                    <a href="{{ path('hideaway_edit', {'id': hideaway.id}) }}">edit</a>
+                    <a href="{{ path('hideaway_show', {'id': hideaway.id}) }}">Voir</a>
+                    <a href="{{ path('hideaway_edit', {'id': hideaway.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

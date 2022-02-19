@@ -6,31 +6,52 @@
     <h1>Mission</h1>
 
     <table class="table">
-        <tbody>            
+        <tbody>        
+
             <tr>
                 <th>Titre</th>
                 <td>{{ mission.missionTitle }}</td>
             </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ mission.missionDescription }}</td>
-            </tr>
-            <tr>
+
+             <tr>
                 <th>Nom de Code</th>
                 <td>{{ mission.missionCodeName }}</td>
+            </tr>            
+
+            <tr>
+                <th>Type</th>
+                <td>{{ mission.typeMission }}</td>
             </tr>
+
+             <tr>               
+                <th>Status</th>
+                <td>{{ mission.status }}</td>
+            </tr>
+
             <tr>
                 <th>Date de Début</th>
                 <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
             </tr>
+
             <tr>
                 <th>Date de Fin</th>
                 <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
             </tr>
+                      
              <tr>               
-                <th>Nom de Code</th>
-                <td>{{ mission.missionCodeName }}</td>
+                <th>Pays</th>
+                <td>{{ mission.country }}</td>
             </tr>
+
+            <tr>
+                <th>Date de Début</th>
+                <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
+            </tr>
+
+            <tr>
+                <th>Date de Fin</th>
+                <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
+            </tr>            
 
             <tr>  
                 <th>Nom Agent(s)</th>           
@@ -64,7 +85,22 @@
                     {% endfor %}
                 </td>                     
             </tr>      
-          
+
+            <tr>  
+                <th>Nom Planque(s)</th>           
+                <td>                   
+                    {% for hideaways in mission.hideaway %}
+                    <li>{{ hideaways.HideawayCode}}</li>                       
+                    {% else %}
+                        <li><em>vide</em></li>
+                    {% endfor %}
+                </td>                     
+            </tr>  
+
+            <tr>
+                <th>Description de la Mission</th>
+                <td>{{ mission.missionDescription }}</td>
+            </tr>    
 
 
 
