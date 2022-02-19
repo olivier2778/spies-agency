@@ -39,11 +39,15 @@ class Hideaway
      */
     private $typeHideaway;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="hideaway")
+     /**
+     * @ORM\ManyToMany(targetEntity=Mission::class)
+     * @ORM\JoinTable(name="mission_hideaway",
+     * joinColumns={@ORM\JoinColumn(name="hideaway_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")}
+     * )
      */
     private $missions;
-
+    
     public function __construct()
     {
         $this->missions = new ArrayCollection();
@@ -128,4 +132,10 @@ class Hideaway
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->hideaway_code ;
+    }    
+    
 }

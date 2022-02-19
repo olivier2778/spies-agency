@@ -76,15 +76,23 @@ class Mission
      * inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
      * )
      */
-    private $agent;
+    private $agent;    
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Contact::class, inversedBy="missions")
+     /**
+     * @ORM\ManyToMany(targetEntity=Contact::class)
+     * @ORM\JoinTable(name="mission_contact",
+     * joinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="contact_id", referencedColumnName="id")}
+     * )
      */
-    private $contact;
+    private $contact;    
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Hideaway::class, inversedBy="missions")
+     /**
+     * @ORM\ManyToMany(targetEntity=Hideaway::class)
+     * @ORM\JoinTable(name="mission_hideaway",
+     * joinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="hideaway_id", referencedColumnName="id")}
+     * )
      */
     private $hideaway;
 
@@ -311,5 +319,12 @@ class Mission
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->mission_title ;
+    }    
+    
+
+    
     
 }

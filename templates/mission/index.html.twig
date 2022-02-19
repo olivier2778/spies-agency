@@ -10,16 +10,19 @@
             <tr>                
                 <th>Titre</th>               
                 <th>Nom de Code</th>
+                <th>Type</th>
                 <th>Date de Début</th>
                 <th>Date de Fin</th>
                 <th>Actions</th>
             </tr>
+
         </thead>
         <tbody>
         {% for mission in missions %}
             <tr>                
                 <td>{{ mission.missionTitle }}</td>                
                 <td>{{ mission.missionCodeName }}</td>
+                <td>{{ mission.typeMission }}</td>
                 <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
                 <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
                 <td>                    

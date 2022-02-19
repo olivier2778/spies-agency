@@ -15,8 +15,7 @@ class TargetType extends AbstractType
             ->add('target_last_name')
             ->add('target_first_name')
             ->add('target_birth_date')
-            ->add('target_code_name')
-            ->add('mission')
+            ->add('target_code_name')            
             ->add('nationality')
         ;
     }

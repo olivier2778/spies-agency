@@ -3,13 +3,13 @@
 {% block title %}Nationality index{% endblock %}
 
 {% block body %}
-    <h1>Nationalité Détails</h1>
+    <h1>Liste des Nationalités</h1>
 
     <table class="table">
         <thead>
             <tr>                
                 <th>Nationalité</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
             <tr>                
                 <td>{{ nationality.nationalityName }}</td>
                 <td>
-                    <a href="{{ path('nationality_show', {'id': nationality.id}) }}">Afficher</a>
+                    <a href="{{ path('nationality_show', {'id': nationality.id}) }}">Voir</a>
                     <a href="{{ path('nationality_edit', {'id': nationality.id}) }}">Modifier</a>
                 </td>
             </tr>

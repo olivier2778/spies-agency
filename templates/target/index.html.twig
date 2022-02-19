@@ -3,12 +3,11 @@
 {% block title %}Target index{% endblock %}
 
 {% block body %}
-    <h1>Target index</h1>
+    <h1>Liste des Cibles</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Target_last_name</th>
                 <th>Target_first_name</th>
                 <th>Target_birth_date</th>
@@ -18,20 +17,19 @@
         </thead>
         <tbody>
         {% for target in targets %}
-            <tr>
-                <td>{{ target.id }}</td>
+            <tr>                
                 <td>{{ target.targetLastName }}</td>
                 <td>{{ target.targetFirstName }}</td>
                 <td>{{ target.targetBirthDate ? target.targetBirthDate|date('Y-m-d') : '' }}</td>
                 <td>{{ target.targetCodeName }}</td>
                 <td>
-                    <a href="{{ path('target_show', {'id': target.id}) }}">show</a>
-                    <a href="{{ path('target_edit', {'id': target.id}) }}">edit</a>
+                    <a href="{{ path('target_show', {'id': target.id}) }}">Voir</a>
+                    <a href="{{ path('target_edit', {'id': target.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Vide</td>
             </tr>
         {% endfor %}
         </tbody>

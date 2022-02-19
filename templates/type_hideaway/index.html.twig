@@ -3,24 +3,22 @@
 {% block title %}TypeHideaway index{% endblock %}
 
 {% block body %}
-    <h1>TypeHideaway index</h1>
+    <h1>Liste des types de Planques</h1>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>TypeHideaway_name</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for type_hideaway in type_hideaways %}
-            <tr>
-                <td>{{ type_hideaway.id }}</td>
+            <tr>                
                 <td>{{ type_hideaway.typeHideawayName }}</td>
                 <td>
-                    <a href="{{ path('type_hideaway_show', {'id': type_hideaway.id}) }}">show</a>
-                    <a href="{{ path('type_hideaway_edit', {'id': type_hideaway.id}) }}">edit</a>
+                    <a href="{{ path('type_hideaway_show', {'id': type_hideaway.id}) }}">Voir</a>
+                    <a href="{{ path('type_hideaway_edit', {'id': type_hideaway.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

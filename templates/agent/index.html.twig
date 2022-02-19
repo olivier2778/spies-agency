@@ -16,7 +16,7 @@
                 <th>Code d'identification</th>
                 <th>Nationnalité</th>
                 <th>Spécialité</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
 				</td>      
                             
                 <td>
-                    <a href="{{ path('agent_show', {'id': agent.id}) }}">Montrer</a>
+                    <a href="{{ path('agent_show', {'id': agent.id}) }}">Voir</a>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('agent_edit', {'id': agent.id}) }}">Modifier</a>               
                     {% endif %}                    

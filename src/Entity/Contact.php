@@ -45,7 +45,11 @@ class Contact
     private $nationality;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="contact")
+     * @ORM\ManyToMany(targetEntity=Mission::class)
+     * @ORM\JoinTable(name="mission_contact",
+     * joinColumns={@ORM\JoinColumn(name="contact_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")}
+     * )
      */
     private $missions;
 
@@ -145,4 +149,10 @@ class Contact
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->contact_last_name ;
+    }    
+    
 }

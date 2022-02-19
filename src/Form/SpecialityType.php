@@ -12,8 +12,7 @@ class SpecialityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('speciality_name')
-            ->add('agent')
+            ->add('speciality_name')            
         ;
     }
 
