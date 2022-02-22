@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact index{% endblock %}
+{% block title %}Liste des Contacts{% endblock %}
 
-{% block body %}
-    <h1>Liste des Contacts</h1>
-
+{% block main %}
+    
     <table class="table">
         <thead>
             <tr>                
@@ -12,6 +11,7 @@
                 <th>Contact_first_name</th>
                 <th>Contact_birth_date</th>
                 <th>Contact_code_name</th>
+                <th>Nationnalité</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +22,7 @@
                 <td>{{ contact.contactFirstName }}</td>
                 <td>{{ contact.contactBirthDate ? contact.contactBirthDate|date('Y-m-d') : '' }}</td>
                 <td>{{ contact.contactCodeName }}</td>
+                <td>{{ contact.nationality }}</td>   
                 <td>
                     <a href="{{ path('contact_show', {'id': contact.id}) }}">Voir</a>
                     <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a>

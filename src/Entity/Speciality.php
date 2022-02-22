@@ -29,14 +29,14 @@ class Speciality
      */
     private $missions;
 
-    /**
+     /**
      * @ORM\ManyToMany(targetEntity=Agent::class)
      * @ORM\JoinTable(name="speciality_agent",
-     * joinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
+     *      joinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
      * )
      */
-    private $agent;
+    private $agents;
 
     public function __construct()
     {

@@ -15,8 +15,7 @@ class HideawayType extends AbstractType
             ->add('hideaway_code')
             ->add('hideaway_adress')
             ->add('country')
-            ->add('typeHideaway')
-            ->add('missions')
+            ->add('typeHideaway')            
         ;
     }
 

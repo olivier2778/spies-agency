@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Nationality{% endblock %}
+{% block title %}Création nouvelle Nationalité{% endblock %}
 
-{% block body %}
-    <h1>Création nouvelle Nationalité</h1>
-
+{% block main %}
+   
     {{ include('nationality/_form.html.twig') }}
 
     <a href="{{ path('nationality_index') }}">Retour à la liste</a>

@@ -7,6 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
+
+
 /**
  * @ORM\Entity(repositoryClass=MissionRepository::class)
  */
@@ -21,6 +24,7 @@ class Mission
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $mission_title;
 
@@ -31,6 +35,7 @@ class Mission
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $mission_code_name;
 
@@ -46,59 +51,53 @@ class Mission
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeMission::class, inversedBy="missions")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $typeMission;
 
     /**
      * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="missions")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $status;
 
     /**
      * @ORM\ManyToOne(targetEntity=Speciality::class, inversedBy="missions")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $speciality;
 
     /**
      * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="missions")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $country;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Target::class, mappedBy="mission")
-     */
-    private $targets;    
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Agent::class)
-     * @ORM\JoinTable(name="mission_agent",
-     * joinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
-     * )
-     */
-    private $agent;    
-
+   
      /**
-     * @ORM\ManyToMany(targetEntity=Contact::class)
-     * @ORM\JoinTable(name="mission_contact",
-     * joinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="contact_id", referencedColumnName="id")}
-     * )
+     * @ORM\ManyToMany(targetEntity=Target::class, inversedBy="missions")
      */
-    private $contact;    
+    private $target;
 
-     /**
-     * @ORM\ManyToMany(targetEntity=Hideaway::class)
-     * @ORM\JoinTable(name="mission_hideaway",
-     * joinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="hideaway_id", referencedColumnName="id")}
-     * )
+    /**
+     * @ORM\ManyToMany(targetEntity=Agent::class, inversedBy="missions")
+     */
+    private $agent;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Contact::class, inversedBy="missions")
+     */
+    private $contact;      
+
+   /**
+     * @ORM\ManyToMany(targetEntity=Hideaway::class, inversedBy="missions")
      */
     private $hideaway;
+    
 
     public function __construct()
     {
-        $this->targets = new ArrayCollection();
+        $this->target = new ArrayCollection();
         $this->agent = new ArrayCollection();
         $this->contact = new ArrayCollection();
         $this->hideaway = new ArrayCollection();
@@ -216,40 +215,36 @@ class Mission
 
         return $this;
     }
+  
 
     /**
-     * @return Collection|Target[]
+     * @return Collection|target[]
      */
-    public function getTargets(): Collection
+    public function getTarget(): Collection
     {
-        return $this->targets;
+        return $this->target;
     }
 
-    public function addTarget(Target $target): self
+    public function addTarget(target $target): self
     {
-        if (!$this->targets->contains($target)) {
-            $this->targets[] = $target;
-            $target->setMission($this);
+        if (!$this->agent->contains($target)) {
+            $this->target[] = $target;            
         }
 
         return $this;
-    }
+    } 
 
-    public function removeTarget(Target $target): self
+
+    public function removeTarget(target $target): self
     {
-        if ($this->targets->removeElement($target)) {
-            // set the owning side to null (unless already changed)
-            if ($target->getMission() === $this) {
-                $target->setMission(null);
-            }
-        }
+        $this->targets->removeElement($target);     
 
         return $this;
     }
 
     /**
      * @return Collection|agent[]
-     */
+     */    
     public function getAgent(): Collection
     {
         return $this->agent;

@@ -42,24 +42,20 @@ class Agent
     /**
      * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="agents")
      */
-    private $nationality;
+    private $nationality;    
 
     /**
      * @ORM\ManyToMany(targetEntity=Speciality::class)
      * @ORM\JoinTable(name="speciality_agent",
-     * joinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")}
+     *      joinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")}
      * )
      */
     private $specialities;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Mission::class)
-     * @ORM\JoinTable(name="mission_agent",
-     * joinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")}
-     * )
-     */   
+     /**
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="agents")
+     */
     private $missions;
 
     public function __construct()

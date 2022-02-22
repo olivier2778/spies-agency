@@ -1,9 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mission index{% endblock %}
+{% block title %}Liste des Missions{% endblock %}
 
-{% block body %}
-    <h1>Liste des Missions</h1>
+{% block main %}   
 
     <table class="table">
         <thead>
@@ -45,6 +44,6 @@
         <a href="{{ path('mission_new') }}">Création Nouvelle Mission</a>
     {% endif %}    
 
-{% endblock %}
+{% endblock main %}
 
 

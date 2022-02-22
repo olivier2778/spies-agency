@@ -2,9 +2,8 @@
 
 {% block title %}Contact{% endblock %}
 
-{% block body %}
-    <h1>Contact</h1>
-
+{% block main %}
+   
     <table class="table">
         <tbody>            
             <tr>
@@ -23,6 +22,10 @@
                 <th>Contact_code_name</th>
                 <td>{{ contact.contactCodeName }}</td>
             </tr>
+            <tr>
+                 <th>Nationnalité</th>
+                 <td>{{ contact.nationality }}</td>  
+            </tr>           
         </tbody>
     </table>
 

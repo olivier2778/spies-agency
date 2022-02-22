@@ -44,12 +44,8 @@ class Contact
      */
     private $nationality;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Mission::class)
-     * @ORM\JoinTable(name="mission_contact",
-     * joinColumns={@ORM\JoinColumn(name="contact_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")}
-     * )
+   /**
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="contacts")
      */
     private $missions;
 

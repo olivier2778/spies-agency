@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Target{% endblock %}
+{% block title %}Modifier une Cible{% endblock %}
 
-{% block body %}
-    <h1>Modifier une Cible</h1>
-
+{% block main %}
+    
     {{ include('target/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('target_index') }}">Retour à la liste</a>

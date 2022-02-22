@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Target{% endblock %}
+{% block title %}Cible{% endblock %}
 
-{% block body %}
-    <h1>Cible</h1>
-
+{% block main %}
+ 
     <table class="table">
         <tbody>            
             <tr>
@@ -22,7 +21,12 @@
             <tr>
                 <th>Target_code_name</th>
                 <td>{{ target.targetCodeName }}</td>
+            </tr>                
+             <tr>
+                 <th>Nationalité</th>
+                 <td>{{ target.nationality.nationalityName }}</td>   
             </tr>
+
         </tbody>
     </table>
 
