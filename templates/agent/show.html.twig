@@ -3,55 +3,57 @@
 {% block title %}Agent{% endblock %}
 
 {% block main %}
+
+ <div class="row">
+
+    <div class="col-4"></div>           
+
+    <div class="col-4">  
     
-    <table class="table">
-        <tbody>           
-            <tr>
-                <th>Nom</th>
-                <td>{{ agent.agentLastName }}</td>
-            </tr>
-            <tr>
-                <th>Prénom</th>
-                <td>{{ agent.agentFirstName }}</td>
-            </tr>
-            <tr>
-                <th>Date de naissance</th>
-                <td>{{ agent.agentBirthDate ? agent.agentBirthDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Code d'identification</th>
-                <td>{{ agent.agentIdentificationCode }}</td>
-            </tr>
-            <tr>
-                <th>Nationnalité</th>
-                <td>{{ agent.nationality }}</td>
-            </tr>
-            <tr>
-                <th>Spécialité</th>
-                 <td>
-					{% for agents in agent.specialities %}
-						<li>{{agents.specialityName}}</li>
-					{% else %}
-                     <li><em>vide</em></li>
-                {% endfor %}
-			    </td>                
-            </tr>
-           
-            
+        <table class="table">
+            <tbody>           
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ agent.agentLastName }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ agent.agentFirstName }}</td>
+                </tr>
+                <tr>
+                    <th>Date de naissance</th>
+                    <td>{{ agent.agentBirthDate ? agent.agentBirthDate|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Code d'identification</th>
+                    <td>{{ agent.agentIdentificationCode }}</td>
+                </tr>
+                <tr>
+                    <th>Nationnalité</th>
+                    <td>{{ agent.nationality }}</td>
+                </tr>
+                <tr>
+                    <th>Spécialité</th>
+                    <td>
+                        {% for agents in agent.specialities %}
+                            <li>{{agents.specialityName}}</li>
+                        {% else %}
+                        <li><em>vide</em></li>
+                    {% endfor %}
+                    </td>                
+                </tr>   
 
-           
+            </tbody>
+        </table>
 
+        <a href="{{ path('agent_index') }}">Retour à la liste</a>
+        
+        {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('agent_edit', {'id': agent.id}) }}">Modifier</a>    
+                {{ include('agent/_delete_form.html.twig') }}           
+        {% endif %}     
 
-
-        </tbody>
-    </table>
-
-    <a href="{{ path('agent_index') }}">Retour à la liste</a>
-    
-    {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('agent_edit', {'id': agent.id}) }}">Modifier</a>    
-            {{ include('agent/_delete_form.html.twig') }}           
-    {% endif %}     
-
+    </div>
+ </div>
     
 {% endblock %}

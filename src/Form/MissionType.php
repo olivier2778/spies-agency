@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Form;
+use App\Entity\Status;
+use App\Entity\Speciality;
 use App\Entity\Mission;
+use App\Entity\TypeMission;
 use App\Entity\Country;
 use App\Entity\Agent;
 use App\Entity\Contact;
@@ -46,12 +49,28 @@ class MissionType extends AbstractType
                 'label'=>'Date de Fin',
                 ])    
          
-            ->add('typeMission')
+           
+            ->add('typeMission', EntityType::class, [
+                'class' => TypeMission::class,
+                'choice_label' => 'typeMission_name',
+                'label'=>'Type',
+                'required' => true,
+            ])
 
-            ->add('status')
+            ->add('status', EntityType::class, [
+                'class' => Status::class,
+                'choice_label' => 'status_name',
+                'label'=>'Statut',
+                'required' => true,
+            ])
 
-            ->add('speciality')
-
+            ->add('speciality', EntityType::class, [
+                'class' => Speciality::class,
+                'choice_label' => 'speciality_name',
+                'label'=>'Spécialité',
+                'required' => true,
+            ])
+            
             ->add('country', EntityType::class, [
                 'class' => Country::class,
                 'choice_label' => 'country_name',
@@ -62,7 +81,7 @@ class MissionType extends AbstractType
                 'class' => Agent::class,
                 'label'=>'Agent',
                 'choice_label' => function (Agent $agent) {
-                    return $agent->getAgentLastName() . ' ' . $agent->getAgentFirstName()  ;
+                    return $agent->getAgentFirstName() . ' ' . $agent->getAgentLastName()  ;
                 },
                 'required' => true,
                 'multiple' => true
@@ -72,7 +91,7 @@ class MissionType extends AbstractType
                 'class' => Contact::class,
                 'label'=>'Contact',
                 'choice_label' => function (Contact $contact) {
-                    return $contact->getContactLastName() . ' ' . $contact->getContactFirstName()  ;
+                    return $contact->getContactFirstName() . ' ' . $contact->getContactLastName()  ;
                 },
                 'required' => true,
                 'multiple' => true
@@ -82,7 +101,7 @@ class MissionType extends AbstractType
                 'class' => Target::class,
                 'label'=>'Cible',
                 'choice_label' => function (Target $target) {
-                    return $target->getTargetLastName() . ' ' . $target->getTargetFirstName()  ;
+                    return $target->getTargetFirstName() . ' ' . $target->getTargetLastName()  ;
                 },
                 'required' => true,
                 'multiple' => true

@@ -4,9 +4,19 @@
 
 {% block main %}
    
-    {{ include('contact/_form.html.twig', {'button_label': 'Modifier'}) }}
+ <div class="row">
 
-    <a href="{{ path('contact_index') }}">Retour à la liste</a>
+    <div class="col-4"></div>           
 
-    {{ include('contact/_delete_form.html.twig') }}
+    <div class="col-4">  
+
+        {{ include('contact/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <a href="{{ path('contact_index') }}">Retour à la liste</a>
+
+        {{ include('contact/_delete_form.html.twig') }}
+
+    </div>
+ </div>     
+ 
 {% endblock %}

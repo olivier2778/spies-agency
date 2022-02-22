@@ -3,8 +3,17 @@
 {% block title %}Creation nouveau Contact{% endblock %}
 
 {% block main %}
-    
-    {{ include('contact/_form.html.twig') }}
 
-    <a href="{{ path('contact_index') }}">Retour à la liste</a>
+ <div class="row">
+
+    <div class="col-4"></div>           
+
+    <div class="col-4">  
+    
+        {{ include('contact/_form.html.twig') }}
+
+        <a href="{{ path('contact_index') }}">Retour à la liste</a>
+
+     </div>
+ </div>        
 {% endblock %}

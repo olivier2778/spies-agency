@@ -4,7 +4,17 @@
 
 {% block main %}
 
-    {{ include('target/_form.html.twig') }}
+ <div class="row">
 
-    <a href="{{ path('target_index') }}">Retour à la liste</a>
+    <div class="col-4"></div>           
+
+    <div class="col-4">   
+
+        {{ include('target/_form.html.twig') }}
+
+        <a href="{{ path('target_index') }}">Retour à la liste</a>
+
+     </div>
+ </div>
+
 {% endblock %}
