@@ -40,11 +40,7 @@ class Hideaway
     private $typeHideaway;
 
      /**
-     * @ORM\ManyToMany(targetEntity=Mission::class)
-     * @ORM\JoinTable(name="mission_hideaway",
-     * joinColumns={@ORM\JoinColumn(name="hideaway_id", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="mission_id", referencedColumnName="id")}
-     * )
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="hideaways")
      */
     private $missions;
     

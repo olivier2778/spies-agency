@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Speciality{% endblock %}
+{% block title %}Modifier une Spécialité{% endblock %}
 
-{% block body %}
-    <h1>Modifier une Spécialité</h1>
-
+{% block main %}
+   
     {{ include('speciality/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('speciality_index') }}">Retour à la liste</a>

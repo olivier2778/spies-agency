@@ -2,119 +2,125 @@
 
 {% block title %}Mission{% endblock %}
 
-{% block body %}
-    <h1>Mission</h1>
+{% block main %}
 
-    <table class="table">
-        <tbody>        
+   <div class="row">
 
-            <tr>
-                <th>Titre</th>
-                <td>{{ mission.missionTitle }}</td>
-            </tr>
+        <div class="col-4"></div>   
 
-             <tr>
-                <th>Nom de Code</th>
-                <td>{{ mission.missionCodeName }}</td>
-            </tr>            
+        <div class="col-4">              
+                                  
+            <table class="table">
+                <tbody>        
 
-            <tr>
-                <th>Type</th>
-                <td>{{ mission.typeMission }}</td>
-            </tr>
+                    <tr>
+                        <th>Titre</th>
+                        <td>{{ mission.missionTitle }}</td>
+                    </tr>
 
-             <tr>               
-                <th>Status</th>
-                <td>{{ mission.status }}</td>
-            </tr>
+                    <tr>
+                        <th>Nom de Code</th>
+                        <td>{{ mission.missionCodeName }}</td>
+                    </tr>            
 
-            <tr>
-                <th>Date de Début</th>
-                <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
-            </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ mission.typeMission }}</td>
+                    </tr>
 
-            <tr>
-                <th>Date de Fin</th>
-                <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
-            </tr>
-                      
-             <tr>               
-                <th>Pays</th>
-                <td>{{ mission.country }}</td>
-            </tr>
+                    <tr>               
+                        <th>Status</th>
+                        <td>{{ mission.status }}</td>
+                    </tr>
 
-            <tr>
-                <th>Date de Début</th>
-                <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
-            </tr>
+                    <tr>
+                        <th>Date de Début</th>
+                        <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
+                    </tr>
 
-            <tr>
-                <th>Date de Fin</th>
-                <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
-            </tr>            
+                    <tr>
+                        <th>Date de Fin</th>
+                        <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
+                    </tr>
+                            
+                    <tr>               
+                        <th>Pays</th>
+                        <td>{{ mission.country }}</td>
+                    </tr>
 
-            <tr>  
-                <th>Nom Agent(s)</th>           
-                <td>                   
-                    {% for agents in mission.agent %}
-                    <li>{{ agents.AgentLastName}}</li>
-                    {% else %}
-                        <li><em>vide</em></li>
-                    {% endfor %}
-                </td>                   
-            </tr>
+                    <tr>
+                        <th>Date de Début</th>
+                        <td>{{ mission.missionStartDate ? mission.missionStartDate|date('Y-m-d') : '' }}</td>
+                    </tr>
 
-            <tr>  
-                <th>Nom Contact(s)</th>           
-                <td>                   
-                    {% for contacts in mission.contact %}
-                    <li>{{ contacts.ContactLastName}}</li>                    
-                    {% else %}
-                        <li><em>vide</em></li>
-                    {% endfor %}
-                </td>                     
-            </tr>
-            
-            <tr>  
-                <th>Nom Cible(s)</th>           
-                <td>                   
-                    {% for target in mission.targets %}
-                    <li>{{ target.TargetLastName}}</li>                       
-                    {% else %}
-                        <li><em>vide</em></li>
-                    {% endfor %}
-                </td>                     
-            </tr>      
+                    <tr>
+                        <th>Date de Fin</th>
+                        <td>{{ mission.missionEndDate ? mission.missionEndDate|date('Y-m-d') : '' }}</td>
+                    </tr>            
 
-            <tr>  
-                <th>Nom Planque(s)</th>           
-                <td>                   
-                    {% for hideaways in mission.hideaway %}
-                    <li>{{ hideaways.HideawayCode}}</li>                       
-                    {% else %}
-                        <li><em>vide</em></li>
-                    {% endfor %}
-                </td>                     
-            </tr>  
+                    <tr>  
+                        <th>Nom Agent(s)</th>           
+                        <td>                   
+                            {% for agents in mission.agent %}
+                            <li>{{ agents.AgentLastName}}</li>
+                            {% else %}
+                                <li><em>vide</em></li>
+                            {% endfor %}
+                        </td>                   
+                    </tr>
 
-            <tr>
-                <th>Description de la Mission</th>
-                <td>{{ mission.missionDescription }}</td>
-            </tr>    
+                    <tr>  
+                        <th>Nom Contact(s)</th>           
+                        <td>                   
+                            {% for contacts in mission.contact %}
+                            <li>{{ contacts.ContactLastName}}</li>                    
+                            {% else %}
+                                <li><em>vide</em></li>
+                            {% endfor %}
+                        </td>                     
+                    </tr>
+                    
+                    <tr>  
+                        <th>Nom Cible(s)</th>           
+                        <td>                   
+                            {% for target in mission.target %}
+                            <li>{{ target.TargetLastName}}</li>                       
+                            {% else %}
+                                <li><em>vide</em></li>
+                            {% endfor %}
+                        </td>                     
+                    </tr>      
+
+                    <tr>  
+                        <th>Nom Planque(s)</th>           
+                        <td>                   
+                            {% for hideaways in mission.hideaway %}
+                            <li>{{ hideaways.HideawayCode}}</li>                       
+                            {% else %}
+                                <li><em>vide</em></li>
+                            {% endfor %}
+                        </td>                     
+                    </tr>  
+
+                    <tr>
+                        <th>Description de la Mission</th>
+                        <td>{{ mission.missionDescription }}</td>
+                    </tr>    
 
 
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
 
-    <a href="{{ path('mission_index') }}">Retour à la liste</a>
+            <a href="{{ path('mission_index') }}">Retour à la liste</a>
 
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('mission_edit', {'id': mission.id}) }}">Modifier</a>
-        {{ include('mission/_delete_form.html.twig') }}
-    {% endif %}    
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('mission_edit', {'id': mission.id}) }}">Modifier</a>
+                {{ include('mission/_delete_form.html.twig') }}
+            {% endif %}    
 
-    
+       </div>
+    </div>
 {% endblock %}
 
 

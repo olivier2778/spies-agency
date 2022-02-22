@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit TypeMission{% endblock %}
+{% block title %}Modifier un type de Mission{% endblock %}
 
-{% block body %}
-    <h1>Modifier un type de Mission</h1>
-
+{% block main %}
+    
     {{ include('type_mission/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('type_mission_index') }}">Retour à la liste</a>

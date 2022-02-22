@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Mission{% endblock %}
+{% block title %}Création nouvelle Mission{% endblock %}
 
-{% block body %}
-    <h1>Création nouvelle Mission</h1>
+{% block main %}
 
-    {{ include('mission/_form.html.twig') }}
+    <div class="row">
 
-    <a href="{{ path('mission_index') }}">Retour à la liste</a>
+            <div class="col-4"></div>           
+
+            <div class="col-4">  
+                {{ include('mission/_form.html.twig') }}
+                <a href="{{ path('mission_index') }}">Retour à la liste</a>
+            </div>   
+            
+    </div>    
 {% endblock %}

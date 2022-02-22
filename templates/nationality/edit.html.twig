@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Nationality{% endblock %}
+{% block title %}Modifier une Nationalité{% endblock %}
 
-{% block body %}
-    <h1>Modifier une Nationalité</h1>
-
+{% block main %}
+    
     {{ include('nationality/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('nationality_index') }}">Retour à la liste</a>

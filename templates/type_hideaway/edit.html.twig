@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit TypeHideaway{% endblock %}
+{% block title %}Modifier un type de Planque{% endblock %}
 
-{% block body %}
-    <h1>Modifier un type de Planque</h1>
-
+{% block main %}
+    
     {{ include('type_hideaway/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('type_hideaway_index') }}">Retour à la liste</a>

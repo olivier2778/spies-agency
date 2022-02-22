@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New TypeMission{% endblock %}
+{% block title %}Création nouveau type de Missions{% endblock %}
 
-{% block body %}
-    <h1>Création nouveau  type de Missions</h1>
-
+{% block main %}
+   
     {{ include('type_mission/_form.html.twig') }}
 
     <a href="{{ path('type_mission_index') }}">Retour à la liste</a>

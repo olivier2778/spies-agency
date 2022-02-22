@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Hideaway{% endblock %}
+{% block title %}Création nouvelle Planque{% endblock %}
 
-{% block body %}
-    <h1>Création nouvelle Planque</h1>
-
+{% block main %}
+    
     {{ include('hideaway/_form.html.twig') }}
 
     <a href="{{ path('hideaway_index') }}">Retour à la liste</a>

@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Target index{% endblock %}
+{% block title %}Liste des Cibles{% endblock %}
 
-{% block body %}
-    <h1>Liste des Cibles</h1>
-
+{% block main %}
+   
     <table class="table">
         <thead>
             <tr>                
@@ -12,6 +11,7 @@
                 <th>Target_first_name</th>
                 <th>Target_birth_date</th>
                 <th>Target_code_name</th>
+                <th>Nationalité</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +22,7 @@
                 <td>{{ target.targetFirstName }}</td>
                 <td>{{ target.targetBirthDate ? target.targetBirthDate|date('Y-m-d') : '' }}</td>
                 <td>{{ target.targetCodeName }}</td>
+                <td>{{ target.nationality.nationalityName }}</td>               
                 <td>
                     <a href="{{ path('target_show', {'id': target.id}) }}">Voir</a>
                     <a href="{{ path('target_edit', {'id': target.id}) }}">Modifier</a>

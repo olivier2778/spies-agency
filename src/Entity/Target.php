@@ -3,7 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\TargetRepository;
+
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
+
 
 /**
  * @ORM\Entity(repositoryClass=TargetRepository::class)
@@ -34,18 +39,22 @@ class Target
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $target_code_name;
 
+    
     /**
-     * @ORM\ManyToOne(targetEntity=Mission::class, inversedBy="targets")    
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="targets")     
      */
-    private $mission;
+    private $missions;
 
     /**
      * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="targets")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $nationality;
+
 
     public function getId(): ?int
     {
@@ -120,6 +129,34 @@ class Target
     public function setNationality(?nationality $nationality): self
     {
         $this->nationality = $nationality;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|Mission[]
+     */
+    public function getMissions(): Collection
+    {
+        return $this->missions;
+    }
+
+    public function addMission(Mission $mission): self
+    {
+        if (!$this->missions->contains($mission)) {
+            $this->missions[] = $mission;
+            $mission->addTarget($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMission(Mission $mission): self
+    {
+        if ($this->missions->removeElement($mission)) {
+            $mission->removeTarget($this);
+        }
 
         return $this;
     }

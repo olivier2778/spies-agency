@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TypeMission index{% endblock %}
+{% block title %}Liste des types de Missions{% endblock %}
 
-{% block body %}
-    <h1>Liste des types de Missions</h1>
-
+{% block main %}
+    
     <table class="table">
         <thead>
             <tr>                
@@ -30,7 +29,7 @@
     </table>
   
     {% if is_granted('ROLE_ADMIN') %}
-              <a href="{{ path('type_mission_new') }}">Création nouvelle Mission</a>
+              <a href="{{ path('type_mission_new') }}">Création nouveau Type de Mission</a>
     {% endif %}   
 
 {% endblock %}

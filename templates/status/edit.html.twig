@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Status{% endblock %}
+{% block title %}Modifier un Statut{% endblock %}
 
-{% block body %}
-    <h1>Modifier un Statut</h1>
-
+{% block main %}
+   
     {{ include('status/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('status_index') }}">Retour à la liste</a>
