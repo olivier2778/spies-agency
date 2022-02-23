@@ -25,7 +25,10 @@
                 <td>{{ contact.nationality }}</td>   
                 <td>
                     <a href="{{ path('contact_show', {'id': contact.id}) }}">Voir</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a>             
+                    {% endif %}     
+                    
                 </td>
             </tr>
         {% else %}

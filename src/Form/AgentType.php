@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Form;
-use App\Entity\Speciality;
 use App\Entity\Agent;
 use App\Entity\Nationality;
+use App\Entity\Speciality;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -46,10 +46,9 @@ class AgentType extends AbstractType
             ->add('specialities' , EntityType::class, [
                 'choice_label' => 'speciality_name', 
                 'class' => Speciality::class,
-                'label'=>'Spécialité',
-                'mapped' => true,
-                'multiple' => true,
-                'expanded' => true,
+                'label'=>'Spécialité',                
+                'multiple' => true,               
+                'required' => true,
             ])        
         ;
     }

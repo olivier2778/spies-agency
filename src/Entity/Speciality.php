@@ -27,16 +27,12 @@ class Speciality
     /**
      * @ORM\OneToMany(targetEntity=Mission::class, mappedBy="speciality")
      */
-    private $missions;
+    private $missions;    
 
-     /**
-     * @ORM\ManyToMany(targetEntity=Agent::class)
-     * @ORM\JoinTable(name="speciality_agent",
-     *      joinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")}
-     * )
+    /**
+     * @ORM\ManyToMany(targetEntity=Agent::class, mappedBy="agents")
      */
-    private $agents;
+    private $agent;    
 
     public function __construct()
     {

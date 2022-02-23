@@ -24,16 +24,19 @@ class Target
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $target_last_name;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $target_first_name;
 
     /**
      * @ORM\Column(type="date")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $target_birth_date;
 
@@ -42,10 +45,9 @@ class Target
      * @ORM\JoinColumn(nullable=false)
      */
     private $target_code_name;
-
     
     /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="targets")     
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="target")     
      */
     private $missions;
 

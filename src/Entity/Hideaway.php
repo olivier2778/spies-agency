@@ -21,26 +21,30 @@ class Hideaway
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $hideaway_code;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $hideaway_adress;
 
     /**
      * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="hideaways")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $country;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeHideaway::class, inversedBy="hideaways")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $typeHideaway;
 
      /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="hideaways")
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="hideaway")
      */
     private $missions;
     
