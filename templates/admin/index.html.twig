@@ -1,18 +1,17 @@
+
 {% extends 'base.html.twig' %}
 
- {% block main %} 
-        
-        <style>
-            .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        </style>
+ {% block main %}     
 
-        {% if app.user %}
-                <div >
-                    Vous etes loggé sous {{ app.user.username }} en tant que administrateur         
-                </div>
-        {% endif %}        
-                
+    <div class="container-fluid text2">
+
+        <div class="h4 text-center ">
+                    Vous êtes loggé sous {{ app.user.username }} en tant que administrateur   
+                    <div class="fill img2" style="background-image:url('{{asset('assets/images/image02.jpg')}}')"></div>                                  
+        </div>   
+           
+    </div>   
+               
   {% endblock  %}
 
 

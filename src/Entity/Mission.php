@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\MissionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -24,18 +22,35 @@ class Mission
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull(message="Le titre est obligatoire")
+     * @Assert\Length(
+     *     min=2,
+     *     max=100,
+     *     minMessage= "2 caractères minimum",
+     *     maxMessage ="100 caractères maximum"
+     * )
      */
     private $mission_title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotNull(message="Le descriptif est obligatoire")
+     * @Assert\Length(
+     *     min=5,        
+     *     minMessage= "5 caractères minimum",         
+     * )
      */
     private $mission_description;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull(message="Le code est obligatoire")
+     * @Assert\Length(
+     *     min=2,
+     *     max=50,
+     *     minMessage= "2 caractères minimum",
+     *     maxMessage ="50 caractères maximum"
+     * )
      */
     private $mission_code_name;
 
@@ -72,7 +87,6 @@ class Mission
      * @ORM\JoinColumn(nullable=false)
      */
     private $country;
-
    
      /**
      * @ORM\ManyToMany(targetEntity=Target::class, inversedBy="missions")

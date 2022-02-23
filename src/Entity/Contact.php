@@ -41,11 +41,12 @@ class Contact
 
     /**
      * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="contacts")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $nationality;
 
    /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="contacts")
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="contact")
      */
     private $missions;
 

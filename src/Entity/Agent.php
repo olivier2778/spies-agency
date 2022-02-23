@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\AgentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AgentRepository::class)
@@ -21,11 +21,25 @@ class Agent
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotNull(message="Le nom est obligatoire")
+     * @Assert\Length(
+     *     min=2,
+     *     max=50,
+     *     minMessage= "2 caractères minimum",
+     *     maxMessage ="50 caractères maximum"
+     * )
      */
     private $agent_last_name;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotNull(message="Le prénom est obligatoire")
+     * @Assert\Length(
+     *     min=2,
+     *     max=50,
+     *     minMessage= "2 caractères minimum",
+     *     maxMessage ="50 caractères maximum"
+     * )
      */
     private $agent_first_name;
 
@@ -36,6 +50,13 @@ class Agent
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotNull(message="Le code est obligatoire")
+     * @Assert\Length(
+     *     min=2,
+     *     max=50,
+     *     minMessage= "2 caractères minimum",
+     *     maxMessage ="50 caractères maximum"
+     * )
      */
     private $agent_identification_code;
 
@@ -43,18 +64,15 @@ class Agent
      * @ORM\ManyToOne(targetEntity=Nationality::class, inversedBy="agents")
      */
     private $nationality;    
-
+   
     /**
-     * @ORM\ManyToMany(targetEntity=Speciality::class)
-     * @ORM\JoinTable(name="speciality_agent",
-     *      joinColumns={@ORM\JoinColumn(name="agent_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="speciality_id", referencedColumnName="id")}
-     * )
+     * @ORM\ManyToMany(targetEntity=Speciality::class, inversedBy="agents")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $specialities;
 
      /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="agents")
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="agent")
      */
     private $missions;
 

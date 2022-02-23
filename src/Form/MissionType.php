@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Form;
-use App\Entity\Status;
-use App\Entity\Speciality;
-use App\Entity\Mission;
-use App\Entity\TypeMission;
-use App\Entity\Country;
 use App\Entity\Agent;
 use App\Entity\Contact;
+use App\Entity\Country;
 use App\Entity\Hideaway;
+use App\Entity\Mission;
+use App\Entity\Speciality;
+use App\Entity\Status;
 use App\Entity\Target;
-
+use App\Entity\TypeMission;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,14 +24,17 @@ class MissionType extends AbstractType
         $builder
             ->add('mission_title' , TextType::class, [
                 'label'=>'Titre',
+                'required' => true,
                 ])
 
             ->add('mission_description', TextType::class, [
                 'label'=>'Description',
+                'required' => true,
                 ])
 
             ->add('mission_code_name', TextType::class, [
                 'label'=>'Nom de code',
+                'required' => true,
                 ])            
              
              ->add('mission_start_date' ,  DateType::class,[
@@ -40,6 +42,7 @@ class MissionType extends AbstractType
                 'format' => 'd-M-y',
                 'years' => range(date("Y") - 5, date("Y") + 5) ,
                 'label'=>'Date de Debut',
+                'required' => true,
                 ])    
 
             ->add('mission_end_date' ,  DateType::class,[
@@ -47,8 +50,8 @@ class MissionType extends AbstractType
                 'format' => 'd-M-y',
                 'years' => range(date("Y") - 5, date("Y") + 5) ,
                 'label'=>'Date de Fin',
-                ])    
-         
+                'required' => true,
+                ])             
            
             ->add('typeMission', EntityType::class, [
                 'class' => TypeMission::class,
@@ -75,6 +78,7 @@ class MissionType extends AbstractType
                 'class' => Country::class,
                 'choice_label' => 'country_name',
                 'label'=>'Pays',
+                'required' => true,
                 ])
         
             ->add('agent', EntityType::class, [
@@ -113,12 +117,9 @@ class MissionType extends AbstractType
                 'choice_label' => function (Hideaway $hideaway) {
                     return $hideaway->getHideawayCode()  ;
                 },
-                'required' => true,
+                'required' => false,
                 'multiple' => true
-            ])     
-                 
-           
-
+            ])                    
         ;
     }
 
