@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class StatusController extends AbstractController
 {
     /**
-     * @Route("/status/", name="status_index", methods={"GET"})
+     * @Route("/admin/status/", name="status_index", methods={"GET"})
      */
     public function index(StatusRepository $statusRepository): Response
     {
@@ -47,7 +47,7 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @Route("/status/{id}", name="status_show", methods={"GET"})
+     * @Route("/admin/status/{id}", name="status_show", methods={"GET"})
      */
     public function show(Status $status): Response
     {

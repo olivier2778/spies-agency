@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NationalityController extends AbstractController
 {
     /**
-     * @Route("/nationality/", name="nationality_index", methods={"GET"})
+     * @Route("/admin/nationality/", name="nationality_index", methods={"GET"})
      */
     public function index(NationalityRepository $nationalityRepository): Response
     {
@@ -47,7 +47,7 @@ class NationalityController extends AbstractController
     }
 
     /**
-     * @Route("/nationality/{id}", name="nationality_show", methods={"GET"})
+     * @Route("/admin/nationality/{id}", name="nationality_show", methods={"GET"})
      */
     public function show(Nationality $nationality): Response
     {

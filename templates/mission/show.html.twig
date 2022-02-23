@@ -28,8 +28,13 @@
                         <td>{{ mission.typeMission }}</td>
                     </tr>
 
+                    <tr>
+                         <th>Spécialité</th>
+                        <td>{{ mission.speciality }}</td>
+                    </tr>                   
+
                     <tr>               
-                        <th>Status</th>
+                        <th>Statut</th>
                         <td>{{ mission.status }}</td>
                     </tr>
 
@@ -62,7 +67,7 @@
                         <th>Nom Agent(s)</th>           
                         <td>                   
                             {% for agents in mission.agent %}
-                            <li>{{ agents.AgentLastName}}</li>
+                            <li>{{ agents.AgentFirstName}}  {{ agents.AgentLastName}} ( {{ agents.Nationality}} )</li>   
                             {% else %}
                                 <li><em>vide</em></li>
                             {% endfor %}
@@ -73,7 +78,7 @@
                         <th>Nom Contact(s)</th>           
                         <td>                   
                             {% for contacts in mission.contact %}
-                            <li>{{ contacts.ContactLastName}}</li>                    
+                            <li>{{ contacts.ContactFirstName}}  {{ contacts.ContactLastName}}</li>                    
                             {% else %}
                                 <li><em>vide</em></li>
                             {% endfor %}
@@ -84,7 +89,7 @@
                         <th>Nom Cible(s)</th>           
                         <td>                   
                             {% for target in mission.target %}
-                            <li>{{ target.TargetLastName}}</li>                       
+                            <li>{{ target.TargetFirstName}}  {{ target.TargetLastName}} ( {{ target.Nationality}} )</li>                       
                             {% else %}
                                 <li><em>vide</em></li>
                             {% endfor %}
@@ -95,7 +100,7 @@
                         <th>Nom Planque(s)</th>           
                         <td>                   
                             {% for hideaways in mission.hideaway %}
-                            <li>{{ hideaways.HideawayCode}}</li>                       
+                            <li>{{ hideaways.HideawayCode}} ( {{ hideaways.TypeHideaway}} )</li>                       
                             {% else %}
                                 <li><em>vide</em></li>
                             {% endfor %}

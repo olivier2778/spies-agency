@@ -24,11 +24,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <a class="nav-link" href="{{ path('mission_index') }}">Accueil</a>                                
+                            <a class="nav-link" href="{{ path('mission_index') }}">Missions</a>                                
                             <a class="nav-link" href="{{ path('login') }}">Administrateur</a>                    
 
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a class="nav-link" href="{{ path('logout') }}">Deconnection</a>
+                                <a class="nav-link" href="{{ path('logout') }}">Déconnexion</a>
                                 
                                  <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="mission_index" role="button" aria-expanded="false">Missions</a>
