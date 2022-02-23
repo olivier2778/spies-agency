@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TypeMissionController extends AbstractController
 {
     /**
-     * @Route("/type/mission/", name="type_mission_index", methods={"GET"})
+     * @Route("/admin/type/mission/", name="type_mission_index", methods={"GET"})
      */
     public function index(TypeMissionRepository $typeMissionRepository): Response
     {
@@ -47,7 +47,7 @@ class TypeMissionController extends AbstractController
     }
 
     /**
-     * @Route("/type/mission/{id}", name="type_mission_show", methods={"GET"})
+     * @Route("/admin/type/mission/{id}", name="type_mission_show", methods={"GET"})
      */
     public function show(TypeMission $typeMission): Response
     {

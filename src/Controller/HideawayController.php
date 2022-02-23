@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HideawayController extends AbstractController
 {
     /**
-     * @Route("/hideaway/", name="hideaway_index", methods={"GET"})
+     * @Route("/admin/hideaway/", name="hideaway_index", methods={"GET"})
      */
     public function index(HideawayRepository $hideawayRepository): Response
     {
@@ -48,7 +48,7 @@ class HideawayController extends AbstractController
     }
 
     /**
-     * @Route("/hideaway/{id}", name="hideaway_show", methods={"GET"})
+     * @Route("/admin/hideaway/{id}", name="hideaway_show", methods={"GET"})
      */
     public function show(Hideaway $hideaway): Response
     {
